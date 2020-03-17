@@ -65,7 +65,7 @@ class Dog
 
   def self.find_by_name(name)
     sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
-    dog_info = DB[:conn].execute(sql, name)
+    dog_info = DB[:conn].execute(sql, name).flatten
     self.new_from_db(dog_info)
   end
 end
